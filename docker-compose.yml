@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  main:
+    container_name: peerswap-lnd
+    # https://hub.docker.com/r/prettyrollcake/peerswap
+    image: prettyrollcake/peerswap:20231217
+    user: 1000:1000
+    environment:
+      HOME: /data
+    volumes:
+      - ~/umbrel/app-data/lightning/data/lnd:/data/.lnd:ro
+      - ${PWD}/data:/data/.peerswap
+    ports:
+      - 42069:42069 # gRPC
+      - 42070:42070 # REST
+    networks:
+      umbrel_main_network:
+        ipv4_address: 10.21.hoge.piyo
+
+networks:
+  umbrel_main_network:
+    external: true
