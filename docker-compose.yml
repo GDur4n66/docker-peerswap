@@ -4,7 +4,7 @@ services:
   main:
     container_name: peerswap-lnd
     # https://hub.docker.com/r/prettyrollcake/peerswap
-    image: prettyrollcake/peerswap:20231217
+    image: prettyrollcake/peerswap:20231218
     user: 1000:1000
     environment:
       HOME: /data
